@@ -1,5 +1,4 @@
-//this change will be added for fetch and pull
-//second changes
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" >
+    <style>
+        body{
+            background-color:rgb(210, 229, 235);
+        }
+
+    </style>
 <body>
-    <h1>All Students</h1>
+    <h1 class="text-center mt-2">All Students</h1>
     <a href="{{ route('students.create') }}">Add Student</a>
-    <table border="1" cellpadding="10">
+    <table class="table table-hover text-center table-striped border-primary table-bordered">
     <tr>
         <th>ID</th><th>Name</th><th>Email</th><th>Course</th><th>Action</th>
     </tr>
@@ -24,11 +29,11 @@
         <td>{{ $student->course }}</td>
 
         <td>
-            <a href="{{ route('students.edit',$student->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ route('students.edit',$student->id)}}">Edit</a>
             <form action="{{ route('students.destroy',$student->id) }}" method="POST" style="display:inline">
             @csrf
             @method('DELETE')
-            <button type="submit" onclick="return confirm('Delete?')">Delete</button>
+            <button class="btn btn-danger" type="submit" onclick="return confirm('Delete?')">Delete</button>
             </form>
         </td>
 
